@@ -2,8 +2,9 @@
 
 import time
 from datetime import datetime, timedelta
+from typing import Any
 
-import psutil
+import psutil  # type: ignore[import-untyped]
 
 from nettools.utils.logger import get_logger
 from nettools.utils.platform_detect import get_platform_info
@@ -140,7 +141,7 @@ class SystemInfo:
             Dictionary with disk details.
         """
         try:
-            disk_info = {"partitions": []}
+            disk_info: dict[str, Any] = {"partitions": []}
 
             # Get all disk partitions
             partitions = psutil.disk_partitions()
@@ -192,7 +193,7 @@ class SystemInfo:
             Dictionary with network details.
         """
         try:
-            network_info = {"interfaces": []}
+            network_info: dict[str, Any] = {"interfaces": []}
 
             # Get network interfaces
             interfaces = psutil.net_if_addrs()
