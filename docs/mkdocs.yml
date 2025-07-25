@@ -1,0 +1,65 @@
+site_name: NetTools Documentation
+site_description: Cross-platform CLI automation suite for network and system tools
+site_url: https://github.com/ambicuity/cross-platform-automation-tools
+repo_url: https://github.com/ambicuity/cross-platform-automation-tools
+repo_name: ambicuity/cross-platform-automation-tools
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: true
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Usage:
+    - CLI Reference: usage/cli.md
+    - Examples: usage/examples.md
+  - API Reference:
+    - CLI: api/cli.md
+    - Core: api/core.md
+    - Utils: api/utils.md
+  - Development:
+    - Contributing: development/contributing.md
+    - Architecture: development/architecture.md
+    - Testing: development/testing.md
