@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [
-    {name = "Cross Platform Automation Tools", email = "info@example.com"}
+    {name = "Cross Platform Automation Tools", email = "riteshrana36@gmail.com"}
 ]
 keywords = ["cli", "automation", "network", "iperf3", "ping", "cross-platform"]
 classifiers = [
