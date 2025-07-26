@@ -2,6 +2,7 @@
 
 import json
 import subprocess
+from typing import Any
 
 from nettools.utils.logger import get_logger
 
@@ -183,7 +184,7 @@ class IPerf3Wrapper:
                 "raw_result": raw_result,
             }
 
-    def _parse_text_output(self, output: str) -> dict:
+    def _parse_text_output(self, output: str) -> dict[str, Any]:
         """Parse text output as fallback when JSON parsing fails.
 
         Args:
@@ -194,7 +195,7 @@ class IPerf3Wrapper:
         """
         # This is a simple fallback parser for text output
         lines = output.split("\n")
-        result = {
+        result: dict[str, Any] = {
             "mode": "client",
             "error": "JSON parsing failed, using text parsing",
             "raw_output": output,

@@ -2,6 +2,7 @@
 
 import time
 from datetime import datetime, timedelta
+from typing import Any
 
 import psutil
 
@@ -53,14 +54,14 @@ class SystemInfo:
             "processor": platform_info["processor"],
         }
 
-    def get_cpu_info(self) -> dict:
+    def get_cpu_info(self) -> dict[str, Any]:
         """Get CPU information and usage statistics.
 
         Returns:
             Dictionary with CPU details.
         """
         try:
-            cpu_info = {
+            cpu_info: dict[str, Any] = {
                 "count": psutil.cpu_count(logical=True),
                 "physical_count": psutil.cpu_count(logical=False),
                 "usage": psutil.cpu_percent(interval=1),
@@ -133,14 +134,14 @@ class SystemInfo:
             self.logger.error(f"Error getting memory info: {e}")
             return {"error": str(e)}
 
-    def get_disk_info(self) -> dict:
+    def get_disk_info(self) -> dict[str, Any]:
         """Get disk usage information.
 
         Returns:
             Dictionary with disk details.
         """
         try:
-            disk_info = {"partitions": []}
+            disk_info: dict[str, Any] = {"partitions": []}
 
             # Get all disk partitions
             partitions = psutil.disk_partitions()
@@ -185,21 +186,21 @@ class SystemInfo:
             self.logger.error(f"Error getting disk info: {e}")
             return {"error": str(e)}
 
-    def get_network_info(self) -> dict:
+    def get_network_info(self) -> dict[str, Any]:
         """Get network interface information.
 
         Returns:
             Dictionary with network details.
         """
         try:
-            network_info = {"interfaces": []}
+            network_info: dict[str, Any] = {"interfaces": []}
 
             # Get network interfaces
             interfaces = psutil.net_if_addrs()
             stats = psutil.net_if_stats()
 
             for interface_name, addresses in interfaces.items():
-                interface_info = {
+                interface_info: dict[str, Any] = {
                     "name": interface_name,
                     "addresses": [],
                     "stats": None,
