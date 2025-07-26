@@ -1,0 +1,9 @@
+# Bandit configuration for NetTools
+# This project intentionally uses subprocess for system tool integration
+exclude_dirs:
+  - tests
+
+skips:
+  - B404  # subprocess module import
+  - B603  # subprocess without shell=True
+  - B607  # partial executable path
